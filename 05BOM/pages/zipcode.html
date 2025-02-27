@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript">
+
+        /*
+        opener : 팝업창(자식창)을 띄워준 부모창으로 데이터를 보내가 제어할 때
+        사용하는 속성.
+        */
+        function setZipcode(zipcode, addr){
+            //부모창의 해당 아이디를 가진 엘리먼트를 찾아 값을 입력한다.
+            //부모창의 객체를 참조할 때는 window.opener를 사용한다.
+            window.opener.document.getElementById("zipcode").value = zip;
+            window.opener.document.getElementById("addr1").value = addr;
+            //부모창의 상세주소를 입력상자로 포커스를 이동한다.
+            window.opener.document.getElementById("addr2").value = addr;
+            //현재창(팝업창)을 닫는다.
+            window.close();
+        }
+        function zipClose(){
+            alert("우편번호검색창을 닫습니다.");
+            self.close();
+        }
+    </script>
+</head>
+<body>
+    <h2>우편번호 검색하기</h2>
+    <table border="1" width="100%">
+
+        <colgroup>
+        <col width="20%">
+        <col width="*">
+        </colgroup>
+        <tr>
+            <th>우편번호</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td>11111</td>
+            <td>
+                <a href="javascript:setZipcode('1111','서울시 종로구')">
+                    서울시 종로구
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>22222</td>
+            <td>
+                <a href="javascript:setZipcode('2222','서울시 중구')">
+                    서울시 중구
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>33333</td>
+            <td>
+                <a href="javascript:setZipcode('3333','서울시 용산구')">
+                    서울시 용산구
+                </a>
+            </td>
+    </table>
+    <p style="text-align:center;">
+        <button onclick="zipClose();">우편번호검색창닫기닫기</button>
+</body>
+</html>

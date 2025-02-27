@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>es6 이전의 문제점</h2>
+    <script>
+        /*
+        var의 문제점 : 지역의 불확실성
+        1) myFunc1()에서 선언한 num1은 지역변수로 선언된다.
+        따라서 전역지역에서 출력하면 에러가 발생한다.
+        */
+        function myFunc1(){
+
+            var num1 =1;  
+                }
+        function myFunc2(){
+            num2 =2;
+        }
+        function myFunc3(){
+        console.log("myfunc3()메소드 안의 num2= "+num2);
+        }
+
+        myFunc1();
+        //console.log("젼역지역 num1"+ num1);
+
+
+        /*
+        myFunc2() 내부에서 var없이 변수가 선언되어 전역변수가
+        되므로 아래는 정상적으로 출력된다. 만약 아래 myFunc2()를
+        호출하지 않으면 에러가 발생한다. 즉 함수가 호출되면서
+        num2가 전역변수로 생성되는것이다.
+        */
+        myFunc2();
+        console.log("전역지역 num2= "+ num2);
+        myFunc3(); // 정상출력됨(지역 애매함)
+
+        for (var i=0; i<=10 ; i++) {
+            console.log("for루프안 i= "+i);
+            
+        }
+        console.log("for루프밖 i= "+i);
+                
+
+</script>
+</body>
+</html>

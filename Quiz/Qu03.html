@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table style="width:500px; align-content:baseline;">
+
+       <tr>
+            <th>*로 탑 만들기</th>
+       
+       <th> *로 역순으로 탑 만들기</th></tr>
+       <tr>
+            <td>---------------------------------</td>
+            <td>---------------------------------</td>
+       </tr>
+       <script>
+       
+            for (let i=1; i<=5; i++){
+                document.write("<tr>");
+                   
+                        document.write("<td>"+"*".repeat(i)+"</td>");
+                       
+                            document.write("<td>"+"*".repeat(6-i)+"</td>");
+                            
+                    
+                            document.write("</tr>");
+                }
+                
+        
+       </script>
+    </table>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>조건문 - if 문</h2>
+    <script>
+        console.error("형식1");
+        var num =10;
+
+        if(num%2==0)
+        console.log("%d은 짝수입니다.",num);
+        if(num%2==0&&num>=10){
+            console.log("%d은 짝수이면서 10보다 크거나 같습니다.",num);
+        }
+        console.error("형식2");
+        //if~else구문으로 참/거짓을 분기하는 형식
+        if((num+1)%2==0){
+            console.log("짝수다.");
+
+        }
+        else {
+            console.log("홀수다.");
+
+        }
+        console.error("삼항연산자");
+        //if else 구문 간편하게 사용하기 /
+        // 조건문 ? 참일때 실행 : 거짓일때 실행
+        let result = ((num+1)%2==0)?"짝수다.":"홀수다.";
+        console.log("숫자 "+num+"은" +result);
+
+        console.error("형식3");
+        //prompt() 입력받은 값은 string이므로 number로 변경 후 대입
+        const age = parseInt(prompt("나이를 입력하세요"));
+        //2개 이상의 조건으로 분기할 때 사용
+        if(age>+7&&age<=12){
+            console.log("어린이");
+        }
+        else if(age>=13&&age<=18){
+            console.log("청소년");
+        }
+        else if(age>=19&&age<=30){
+            console.log("청년");
+        }
+        else if(age>=31&&age<=60){
+            console.log("중년");
+        }
+        else{
+            console.log("노인");
+        }
+
+    </script>
+</body>
+</html>

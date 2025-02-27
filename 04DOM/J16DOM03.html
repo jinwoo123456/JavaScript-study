@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      button {
+        width: 100px;
+        height: 100px;
+      }
+      div {
+        border: 3px solid gray;
+        width: 13rem;
+        margin-top: 10px;
+
+        /*
+        # = id선택자 //html 문서에 하나만 기술 가능. 여러개 하면 첫번쨰만 선택됨.
+        . = 클래스 선택자
+        */
+        #mydiv {
+          font-size: 24px;
+        }
+        .mycls {
+          padding: 5px;
+        }
+      }
+    </style>
+    <script>
+      function myDivId() {
+        var div = document.getElementById("mydiv");
+        //div 태그 내부의 텍스트 색깔을 변경한다.
+        div.style.color = "pink";
+      }
+      function myDivClass() {
+        var divs = document.getElementsByClassName("mycls");
+        for (var i = 0; i < divs.length; i++) {
+          divs[i].style.color = "green";
+        }
+      }
+    </script>
+    <div id="mydiv" class="mycls">MyDiv1</div>
+    <div id="mydiv" class="mycls">MyDiv2</div>
+    <div id="mydiv" class="mycls">MyDiv3</div>
+    <div id="mydiv" class="mycls">MyDiv4</div>
+    <button type="button" onclick="myDivId()">id버튼</button>
+    <button type="button" onclick="myDivClass()">class버튼</button>
+  </body>
+</html>

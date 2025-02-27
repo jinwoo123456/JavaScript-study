@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구구단 출력기</title>
+    <script>
+        function gugudanPrint() {
+            //<input>과 <select>에서 선택한 값 얻어오기
+            var dan = document.getElementById("dan").value;
+            var su = document.getElementById("su").value;
+            //구구단을 만들기
+            var strGugu = "<table border='1'>";
+            for(var x=2; x<=dan; x++) {
+                strGugu += "<tr>";
+                for(var y=1; y<=su; y++) {
+                    //수(열)의 갯수만큼 <td>태그를 반복
+                    strGugu += "<td>" + y + " × " + x + " = " + (x*y) + "</td>";
+                }
+                strGugu += "</tr>";
+            }
+            strGugu += "</table>";
+            //앞에서 연결된 문자열(<table>)이 동적으로 삽입된다.
+            document.getElementById("here_gugudan").innerHTML = strGugu;
+        }
+    </script>
+</head>
+<body>
+    <h2>반복문 활용</h2>
+    <div>구구단은 여기에 출력됩니다.</div>
+    <table border="1">
+        <tr>
+            <td>단 선택:</td>
+            <td>
+                <input type="range" id="dan" min="2" max="9" oninput="document.getElementById('danValue').innerText = this.value;">
+                <span id="danValue">2</span>
+            </td>
+        </tr>
+        <tr>
+            <td>수 선택:</td>
+            <td>
+                <!-- select option 9 -->
+                <select id="su">
+                    <option value="2">2</option>
+                    <option value="3">3</option>  
+                    <option value="4">4</option> 
+                    <option value="5">5</option> 
+                    <option value="6">6</option> 
+                    <option value="7">7</option>
+                    <option value="8">8</option> 
+                    <option value="9">9</option> 
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="button" value="구구단 출력" onclick="gugudanPrint();" />
+            </td>
+        </tr>
+    </table>
+
+    <span id="here_gugudan">
+        <!-- 구구단 결과가 여기에 출력됩니다 -->
+    </span>
+</body>
+</html>

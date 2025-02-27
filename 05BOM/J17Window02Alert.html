@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ds</title  >
+
+        <script>
+           /*
+           js에서 객체는 다음과 같이 {}중괄호를 이용해서 만들 수 있다.
+           앞에 선언된 변수가 객체의 이름이 된다. 각 익명함수 앞에 있는
+           라벨을 통해 멤버함수를 호출할 수 있다.
+           (클래스 같이 만든거임.)
+           */
+           /*
+            alert(): 단순 경고창으로 사용자에게 메세지를
+           전달하는 용도로 사용된다.
+
+           */
+           
+            var fn= {
+                login:function(){
+                    //아이디가 user인 dom을 얻어온다
+                    var user = document.getElementById("user");
+                    //텍스트 입력상자에 입력된 값이 있는지 확인
+                    if(user.value==""){
+                    //만약 입력값이 없다면 경고창를 띄운다.
+                    alert("아이디를 입력해주세요");
+                    //입력상자로 포커스를 이동한다.
+                    user.focus();
+
+                }
+                },
+                //confirm(): 대화상자의 일종으로 사용자가 확인을 누르면 true,
+               // <!-- 취소를 누르면 false를 반환 -->
+                drop:function(){
+                    var answer = confirm("정말 삭제하시겠습니까?");
+                    if(answer){
+                        alert("삭제되었습니다.");
+                    }
+                    else{
+                        alert("삭제가 취소되었습니다.");
+                    }
+                },
+                //<!-- prompt():사용자로부터 입력을 받기 위한 대화상자.디폴트값이 필요한
+                //경우 두번쨰 인자를 사용 -->
+                insertName:function(){
+                    var name = prompt("이름을 입력해주세요");
+                    if(name != null){
+                        alert("이름은 "+name+"입니다.");
+                    }
+                },
+                insertAge:function(){
+                    var age = prompt("당신의 나이는?","20");
+                    //산술연산을 위해 parseInt()를 통해 정수로 변환해야 한다.
+                   alert("당신은 10년 후"+ (parseInt(age)+10)+"살 입니다.");
+                  
+                }
+            }
+        </script>
+</head>
+<body>
+    <h2>window 객체</h2>
+    <h3>대화 상자 (alert,confirm,prompt)</h3>
+    아이디 : <input type="text" id="id"/>
+
+<input type="button" value="로그인" onclick="fn.login();"/>
+<input type="button" value="삭제하기" onclick="fn.drop();"/>
+<input type="button" value="이름 입력하기" onclick="fn.insertName();"/>
+<input type="button" value="나이 입력하기" onclick="fn.insertAge();"/>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>js의 core객체 - string</h2>
+    <script>
+        var str1 = "Hello Javascript";
+        var str2 = '안녕 자바스크립트'; 
+        //구분자를 통해 문자열을 분리해서 배열로 반환해주는 함수
+        console.error("split() 함수");
+        console.warn("구분자가 있는 경우");
+        var tel = "010-1234-5678";
+        //구분자가 일치하는 경우 크기 3인 배열로 반환
+        var teArr = tel.split("-");
+        //각 인덱스의 전화번호가 출력
+        for(var i=0;i<telArr.length ; i++){
+            console.log("telArr["+i+"]= "+telArr[i]);
+        }
+        //구분자가 일치하지 않는 경우 크기 1인 배열로 반화
+        console.warn("구분자가 없는 경우");
+        var telArrNo = tel.split("*");
+        for(var i=0 ; i<telArrNo.length ; i++){
+            console.log("telArrNo["+i+"]= "+telArrNo[i]);
+        }
+        /*
+        문자열의 앞에서부터 검색하여 문자열을 찾아 인덱스 반환
+        */
+        console.error("indexOf() 함수");
+        console.log(str2.indexOf("자바")!=-1?"자바 포함됨.":"자바 포함안됨");
+        //문자열의 뒤에서부터 검색
+        
+        console.log("lastIndexOf() 함수");
+        console.log(str2.lastIndexOf("a")!=-1?"a 포함됨.":"a 포함안됨");
+        console.log(str1 ="에서 a의 마지막 위치는?"+str1.lastIndexOf("a"));
+    </script>
+    <h4>링크걸기</h4>
+    <div id = "myNaver"></div>
+    <div id = "myDaum"></div>
+    <script>
+        //방법1 ES6 이전 : 예전방식 ( javascript 표준에서 더 이상 권장하지 않음.)
+        let linkText = "Naver바로가기";
+        //문자열 변수에 link()함수를 통해 링크를 추가
+        let linkHTML = linkText.link("http://www.naver.com");
+        document.getElementById("myNaver").innerHTML = linkHTML;
+
+
+        //방법2 ES6 이후 : 최신방식 (권장)
+        // DOM API를 사용하는 방법을 추천한다.
+        // 이유 : 보안상의 이유로 외부링크를 삽입하는 방법을 제한하기 때문
+        //DOM을 선택한 후 링크를 삽입
+        //문서 객체를 통해 <a>태그를 생성.
+        const a = document.createElement("a");
+        //생성된 태그에 href 속성을 추가
+        a.href = "https://www.daum.net";
+        //<a> 태그에 텍스트를 삽입.
+        a.textContent = "Daum바로가기";
+        //선택한 DOM의 자식으로 <a>태그를 추가 
+        document.getElementById("myDaum").appendChild(a);
+    </script>
+</body>
+</html>

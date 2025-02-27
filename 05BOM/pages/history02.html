@@ -1,0 +1,28 @@
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <title>/pages/history02.html</title>
+</head>
+
+<body>
+    <h2>history02 - 회원가입</h2>
+    <h3>
+        회원가입을 진행해주세요
+        
+    </h3>
+    <!-- 방문한 이력이 존재하는 경우 1페이지 혹은 n페이지 뒤로도 이동할 수 있다. -->
+    <p>
+        <a href ="javascript:history.go(-1);">1page뒤로가기</a>
+        <br>
+            <!-- onclick을 붙일경우 자바스크립트  javascript: 안 써도 됌. -->
+        <a href="#" onclick="javascript:history.go(-2);">2page뒤로가기</a>
+        
+
+        <!-- js 함수를 호출할 떄
+        - href에서는 반드시 javascript:접두어를 사용해야 한다. 만약 기술하지 않으면
+        url로 인식하여 페이지 이동에 오류가 발생한다.
+        -onclick 과 같은 이벤트 리스너(핸들러)에서는 ㄴ접두어를 생략하고
+        함수명만 기술하면 된다. -->
+</body>
+</html>

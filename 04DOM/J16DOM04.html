@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Document</title>
+    <style></style>
+    <script>
+      //동적으로 생성되는 div 태그에 부여할 스타일 속성을 배열로 선언
+      var myColor = ["red", "green", "blue", "violet"];
+      //div 태그를 추가할때마다 1씩 증가할 변수
+      var cnt = 0;
+
+      function createDOM() {
+        var myBody = document.getElementById("myBody");
+        // 태그 사이에 컨텐츠를 추가
+        var newDiv = document.createElement("div");
+        // id 속성을 mydiv로 자바스크립트는 하나의 규칙이 있음
+        newDiv.innerHTML = "새로 생성된 div입니다.";
+        newDiv.setAttribute("id", "myDiv");
+        /*
+        javascript 에서 css 스타일을 부여할떄의 규칙
+        color와 같은 경우는 그대로 사용
+        background-color와 같은 경우에는 하이픈을 제거하고 첫글자를 대문자로 변경한 후 사용한다.
+        -> backgroundColor
+        예{
+          newDiv.style.backgroundColor = "red";
+        }
+          
+         
+        */
+        newDiv.style.backgroundColor = myColor[++cnt % 4];
+        newDiv.onclick = function () {
+          //지정된 요소의 부모 요소로부터 자신을 제거한다.
+          //지정된 요소의 부묘요소를 가져와 변수 pe에 저장(현재 부모는 body)
+          var pe = this.parentElement;
+          //pe의 자식요소로부터 this를 제거(this는 자신이므로 자식요소를 제거)
+          pe.removeChild(this);
+          //따라서 동적으로 추가된 <div>가 삭제된다.
+        };
+        //<body> 하위(자식)에 <div>를 동적으로 추가한다.
+        myBody.appendChild(newDiv);
+      }
+    </script>
+  </head>
+  <body id="myBody">
+    <h3>DOM 동적 추가/삭제</h3>
+    <a href="javascript:createDOM()">동적생성</a>
+  </body>
+</html>

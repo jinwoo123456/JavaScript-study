@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>문제4</h2>
+    <script>
+        /*
+        
+         filter() 함수를 사용하여 가격이 1000원 이상인
+          상품의 이름만 추출하여 새로운 배열을 반환하는 
+          프로그램을 작성하시오. */
+          const products = [
+          { name: 'apple', price: 1000, category: 'fruit' },
+          { name: 'banana', price: 800, category: 'fruit' },
+          { name: 'notebook', price: 20000, category: 'electronics' },
+          { name: 'mouse', price: 5000, category: 'electronics' }
+        ];
+         newProducts = products.filter(function(currentVal){
+            return currentVal.price >= 1000;
+         })
+         console.log(newProducts);
+
+
+    </script>
+</body>
+</html>

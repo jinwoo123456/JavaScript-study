@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>정수 5개 입력받아 역순으로 출력</h2>
+
+    <script>
+        a = prompt("정수 5개를 입력 1번쨰")
+        b = prompt("정수 5개를 입력 2번쨰")
+        c = prompt("정수 5개를 입력 3번쨰")
+        d = prompt("정수 5개를 입력 4번쨰")
+        e = prompt("정수 5개를 입력 5번쨰")
+        a1=parseInt(a)
+        b1=parseInt(b)
+        c1=parseInt(c)
+        d1=parseInt(d)
+        e1=parseInt(e)
+        plots = [a1,b1,c1,d1,e1]
+        document.write("<p> 입력된 수의 배열 "+plots+"</p>")
+        rev = plots.reverse()
+        document.write("<p> 역순 수의 배열 "+plots+"</p>")
+
+    </script>
+</body>
+</html>

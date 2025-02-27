@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>문7</h2>
+<script>
+    /*
+
+    문제07] filter() 함수를 사용하여 문자열
+     길이가 6이상인 문자열만 추출하는 프로그램을 작성하시오. 
+    */
+    const words = ['apple', 'banana', 'cherry', 'orange', 'grape'];
+
+    newWords = words.filter(function(words){
+        return 6 <= words.length
+    })
+    console.log(newWords);
+</script>
+</body>
+</html>

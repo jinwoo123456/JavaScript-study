@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>document.write()로 표 만들기</h2>
+    <p>------------------------------</p>
+    <table border="1">
+        <tr><td>n</td>
+            <script>
+            for(let i=0;i<=10;i++){
+                document.write("<td>"+i+"</td>");
+            }
+        </script>
+    </tr>
+    <tr>
+        
+        
+        <td>n<sup>2</sup></td>
+        <script>
+            let tot = 1;
+            let b = 1
+            
+            for(let i=0;i<=9;i++){
+                if (i<2) document.write("<td>"+i+"</td>");
+                if (i==2){
+                    tot = tot + 3 
+                    document.write("<td>"+tot+"</td>");
+                }
+                if (i>2){
+                    
+
+                    tot = tot + (3*b)
+
+                    document.write("<td>"+tot+"</td>");
+                    b = b+1
+
+                }
+            }
+                
+               
+            
+        </script>
+    </tr>
+    </table>
+</body>
+</html>

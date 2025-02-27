@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+        forEach() 함수
+        -Array 크기인 N번 반복하여 콜백함수를 호출한다.
+        thisArgs는 콜백함수 내에서 인수로 사용된다. this.x와 같이 사용할수
+        있다. 필요없는 경우 생략할 수 있다.
+        -반환값이 없다
+        형식:
+        var array= [1,2,3,....N];
+        array.forEach(
+        callBackFunction(현재값,현재값의인덱스,호출한배열){
+        실행구문},
+        thisArgs);
+        */
+      function forEachTest() {
+        console.error("forEachTest1().called..기본사용법");
+        //크기가 5인 배열 생성
+        var oldArray = [1, 2, 3, 4, 5];
+        //배열을 통해 호출하므로 5번 반복되어 콜백함수를 호출한다.
+        oldArray.forEach(function (currentVal, index, array) {
+          /*
+                현재 루프에서의 값과 인덱스가 콘솔에 출력된다.
+                루프1 : 현재값1, 인덱스0
+                루프2 : 현재값2, 인덱스1... 과 같은 패턴으로 출력된다.
+                */
+          console.log("현재값" + currentVal, "인덱스" + index, "배열" + array);
+        });
+      }
+      function forEachTest2() {
+        console.error("forEachTest2().called..배열 요소의 합계");
+        var oldArray = [1, 2, 3, 4, 5];
+        //콜백함수 내에서 사용할 변수를 선언
+        var sum = 0;
+        /*
+    첫번쨰 예제에서는 무기명함수로 선언했던 콜백함수를 여기서는
+    외부함수로 선언한다. 선언시 매개변수는 currentVal만 사용한다.
+    index, array는 필요없는 경우 생략할 수 있다.*/
+        function getSum(currentVal) {
+          //현재 루프의 요소를 sum에 누적해서 더한다.
+          sum += currentVal;
+        }
+        //앞에서 선언한 콜백함수를 forEach()의 첫번쨰 인수로 사용하여 호출
+        oldArray.forEach(getSum);
+        //1~5까지의 합의 결과를 출력 : 15
+        console.log(sum);
+      }
+
+      function forEachTest3() {
+        console.error("forEachTest3 called ..args 매개변수 사용하기");
+        //배열과 변수 선언
+        var oldArray = [1, 2, 3, 4, 5];
+        var sum = 0;
+        //콜백함수에서 사용할 인수를 객체로 정의
+        var myArgs = { min: 3, max: 7 };
+        //콜백함수를 정의
+        function getSum(currentVal) {
+          /*forEach()의 인수로 전달된 myArgs는 this.key와 같은 형태로
+        사용할수 있다.*/
+
+          if (currentVal >= this.min && currentVal <= this.max) {
+            //3~7사이의 정수만 sum에 누적해서 더한다.
+            sum += currentVal;
+          }
+        }
+        //콜백함수와 객체로 정의한 인수를 전달하여 forEach()함수 호출
+        oldArray.forEach(getSum, myArgs);
+        //3~7 사이의 합 :25
+        console.log(sum);
+      }
+    </script>
+    <h2>고차함수 - foreach()</h2>
+    <div>
+      <input type="button" onclick="forEachTest1();" value="forEach1" />
+      <input type="button" onclick="forEachTest1();" value="forEach2" />
+      <input type="button" onclick="forEachTest1();" value="forEach3" />
+      <input type="button" onclick="forEachTest1();" value="forEach4" />
+    </div>
+  </body>
+</html>

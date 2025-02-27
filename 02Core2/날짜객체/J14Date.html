@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>js의 core객체 - date</h2>
+    <script>
+        /*
+        Date객체
+        :현재 날짜와 시간을 얻어온 후 날짜에 대한 정보와 계산을 할 수 있다.
+        setXXX() : 날짜를 지정
+        getXXX() : 시스템의 날짜를 얻어올 떄 사용.
+        */
+        console.error("Date객체");
+        var date = new Date();
+        //현재 날짜와 시간을 표시 및 표준시에 대한 정보 출력
+        console.log("저장된 값:",date);
+        //1900년부터 현재까지 지난 년도를 반환
+        console.log("연도 변환:",(date.getYear()));
+        //0~11까지를 반환
+        console.log("월 변환: ",(date.getMonth()));
+        // 연도는 1900을 더해야 현재가 된다.
+        var y = date.getYear()+1900;
+        //월은 1을 더해야 현재월이 된다.
+        var mo = date.getMonth()+1;
+
+        var d = date.getDate();
+        var h = date.getHours();
+        var mi = date.getMinutes();
+        var s = date.getSeconds();
+        console.log("현재시간: ",y+"년 "+mo+"월 "+d+"일 "+h+"시 "+mi+"분 "+s+"초");
+
+
+        console.error("월/일/시간만 변경 후 출력");
+        date.setMonth(11);
+        date.setDate(25);
+        date.setHours(12);
+        var mo2 = date.getMonth()+1;
+        var d2 = date.getDate();
+        console.log("변경된 시간: ",y+"년 "+mo2+"월 "+d2+"일 "+h+"시 "+mi+"분 "+s+"초");
+
+
+        // getDay() : 요일을 0~6까지 정수로 반환. 일요일부터 시작.
+        console.error("올해의 크리스마스 요일 얻기 ");
+        var week = ['일','월','화','수','목','금','토'];
+        console.log(week[date.getDay()]+"요일");   
+        /*
+        getTime() : 1970년 1월 1일 0시 0분 0초부터 현재까지의 시간을 초 단위로 계삲해서
+        반환한다.이를 Timestamp라고 한다. js는 1/1000초 단위의 시간을 사용하므로
+        1000을 곱해줘야한다.
+        */
+        var startDate = new Date(2022,11,25);
+        var endDate = new Date();
+        var diff = startDate.getTime()-endDate.getTime();
+
+        console.error("크리스마스까지의 남은 일수는?");
+        console.log(diff/(1000*60*60*24)+"일 남았습니다.");
+    </script>
+</body>
+</html>

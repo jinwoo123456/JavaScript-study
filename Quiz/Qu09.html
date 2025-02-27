@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <!-- 문제09]  1에서 100사이의 난수(100포함) 10개를 생성하여
+      plots 이름의 배열에 저장하고 배열에 저장된 수 중 가장 큰 수를 출력하는 
+      프로그램을 작성하시오.
+ -->
+      <h2>난수생성</h2>
+      <script>
+        let plots = [];
+        let cnt = 0;
+        while (10){
+            if (cnt == 10) break;
+                
+            
+            plots.push(Math.floor(Math.random() * 100) + 1);
+            document.write("<p>"+plots[cnt]+"</p>");
+            cnt++
+        }
+        plots.sort();
+        last2 = plots.slice(-1)
+        document.write("<p>가장 큰 수는?"+last2+"</p>");
+        
+      </script>
+</body>
+</html>

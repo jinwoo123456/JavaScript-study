@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>문제8</h2>
+    <script>
+        /*
+        filter() 함수를 사용하여객체 배열에서 'fruit' 
+        카테고리의 상품만 추출하기
+        
+
+        */
+        const products = [
+  { name: 'apple', category: 'fruit' },
+  { name: 'notebook', category: 'electronics' },
+  { name: 'banana', category: 'fruit' },
+  { name: 'mouse', category: 'electronics' }
+];
+newProduct = products.filter(function(prod){
+    return prod.category == "fruit"
+})
+console.log(newProduct);
+    </script>
+</body>
+</html>

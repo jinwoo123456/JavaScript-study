@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var getString = function (param) {
+        switch (param) {
+          case "POL":
+            return "정치";
+          case "ECO":
+            return "경재";
+          case "ENT":
+            return "연애";
+        }
+      };
+      //태그명을 통해 DOM에 접근하기 위한 함수 정의
+      function fnGetElementsByTag() {
+        //HTML 문서에 있는 모든 input 태그를 얻어와서 배열변수에 저장
+        var inputs = document.getElementsByTagName("input");
+        var checkString = "",
+          inputString;
+        //input태그의 갯수(5개) 만큼 반복한다.
+        for (var i = 0; i < inputs.length; i++) {
+          /*
+            input태그중 checkbox 이면서 체크된 상태의 엘리먼트만
+            선택해서 value 속성값을 얻어온다.이 값을 문자열 변수에 
+            연결한다.
+            */
+          if (inputs[i].type == "checkbox" && inputs[i].checked == true) {
+            checkString += getString(inputs[i].value) + " ";
+            /*
+            checkbox를 button으로 동적 변경한다.
+            */
+            input[i].type = "button";
+            input[i].value = "동적버튼변경" + i;
+          }
+          // input 태그중 text 타입의 엘리먼트만 선택해서 value 속성값을 얻어온다.
+          if (inputs[i].type == "text" && inputs[i].name == "text") {
+            inputString = inputs[i].value;
+          }
+        }
+        alert("선택한값 :" + checkString + ", 입력한값 :" + inputString);
+      }
+      function fnGetDomain() {
+        //a태그만 선택해서 얻어온다
+        var a_tags = document.getElementsByTagName("a");
+        /* a태그의 href속성값을 대문자로 변환한 후 www라는 문자열이 포함된 것만 선택한다. */
+        for (var i = 0; i < a_tags.length; i++) {
+          /*
+            a태그의 href속성값을 대문자로 변환한 후 www라는 문자열이 포함된 것만 선택한다.
+            여러개의 함수를 닷(.)으로 연결해서 호출하는 기법을 "메서드체인 " 이라고 한다.
+            */
+          if (a_tags[i].href.indexOf("http://") != -1) {
+            alert(a_tags[i].href);
+          }
+        }
+      }
+    </script>
+    <h2>DOM 객체 사용하기</h2>
+    <h3>태그명으로 객체 얻기1</h3>
+    <input type="checkbox" ,name="inter" ,value="POL" checked />정치
+    <input type="checkbox" ,name="inter" ,value="ECO" checked />경제
+    <input type="checkbox" ,name="inter" ,value="ENT" checked />연애
+    <input type="text" name="txt" id="" />
+    <input
+      type="button"
+      value="태그명으로DOM객체얻기"
+      ,
+      onclick="fnGetElementsByTag();"
+    />
+    <h2>태그명으로 객체얻기2</h2>
+    <!-- ul>(li>a)*3 -->
+    <ul>
+      <li><a href="http://www.naver.com">네이버</a></li>
+      <li><a href="http://www.daum.net">다음</a></li>
+      <li><a href="http://www.네이트">네이트</a></li>
+    </ul>
+    <button onclick="fnGetDomain();">도메인얻어오기</button>
+  </body>
+</html>
